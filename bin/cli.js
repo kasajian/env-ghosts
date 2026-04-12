@@ -16,16 +16,16 @@ try {
   process.exit(1);
 }
 
-const dirPaths = config.dir_paths || [];
-const filePaths = config.file_paths || [];
+const multiPathVars = config.multi_path_vars || [];
+const singlePathVars = config.single_path_vars || [];
 
 const dirMissing = {};
 const dirEmpty = {};
 const fileMissing = [];
 const fileEmpty = [];
 
-// 2. Scan dir_paths (lists of folders)
-dirPaths.forEach(({ envvar }) => {
+// 2. Scan multi_path_vars (lists of folders)
+multiPathVars.forEach(({ envvar }) => {
   const value = process.env[envvar];
   if (!value) return;
 
@@ -57,8 +57,8 @@ dirPaths.forEach(({ envvar }) => {
   }
 });
 
-// 3. Scan file_paths (single folder)
-filePaths.forEach(({ envvar }) => {
+// 3. Scan single_path_vars (single folder)
+singlePathVars.forEach(({ envvar }) => {
   const value = process.env[envvar];
   if (!value) return;
 

@@ -1,5 +1,5 @@
 {
-  "dir_paths": [
+  "multi_path_vars": [
     {
       "envvar": "Path",
       "description": "The primary search path for executable files.",
@@ -81,7 +81,7 @@
       "tool": "PHP"
     }
   ],
-  "file_paths": [
+  "single_path_vars": [
     {
       "envvar": "HOME",
       "description": "The current user's home directory.",
