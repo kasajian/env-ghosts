@@ -19,8 +19,10 @@ try {
 const dirPaths = config.dir_paths || [];
 const filePaths = config.file_paths || [];
 
-const dirErrors = {};
-const fileErrors = [];
+const dirMissing = {};
+const dirEmpty = {};
+const fileMissing = [];
+const fileEmpty = [];
 
 // 2. Scan dir_paths (lists of folders)
 dirPaths.forEach(({ envvar }) => {
@@ -28,10 +30,30 @@ dirPaths.forEach(({ envvar }) => {
   if (!value) return;
 
   const parts = value.split(path.delimiter);
-  const missing = parts.filter(p => p && !fs.existsSync(p));
+  const missing = [];
+  const empty = [];
+
+  parts.forEach(p => {
+    if (!p) return;
+    if (!fs.existsSync(p)) {
+      missing.push(p);
+    } else {
+      try {
+        const files = fs.readdirSync(p);
+        if (files.length === 0) {
+          empty.push(p);
+        }
+      } catch (err) {
+        // If we can't read the directory (e.g. permission denied), we don't count it as empty
+      }
+    }
+  });
 
   if (missing.length > 0) {
-    dirErrors[envvar] = missing;
+    dirMissing[envvar] = missing;
+  }
+  if (empty.length > 0) {
+    dirEmpty[envvar] = empty;
   }
 });
 
@@ -41,27 +63,50 @@ filePaths.forEach(({ envvar }) => {
   if (!value) return;
 
   if (!fs.existsSync(value)) {
-    fileErrors.push(envvar);
+    fileMissing.push(envvar);
+  } else {
+    try {
+      const files = fs.readdirSync(value);
+      if (files.length === 0) {
+        fileEmpty.push(envvar);
+      }
+    } catch (err) {
+      // Permission issues etc.
+    }
   }
 });
 
 // 4. Reporting
-let hasErrors = false;
+let hasIssues = false;
 
-// Report for dir_paths
-Object.entries(dirErrors).forEach(([envvar, missing]) => {
-  hasErrors = true;
+// Report for dir_paths - Missing
+Object.entries(dirMissing).forEach(([envvar, missing]) => {
+  hasIssues = true;
   console.log(`\nFolders listed in the environment variable ${envvar} that do not exist on the system:`);
   missing.forEach(p => console.log(`  - ${p}`));
 });
 
-// Report for file_paths
-if (fileErrors.length > 0) {
-  hasErrors = true;
-  console.log(`\nThe following environment variables point to paths that do not exist on this system:`);
-  fileErrors.forEach(envvar => console.log(`  - ${envvar} (${process.env[envvar]})`));
+// Report for dir_paths - Empty
+Object.entries(dirEmpty).forEach(([envvar, empty]) => {
+  hasIssues = true;
+  console.log(`\nFolders listed in the environment variable ${envvar} that exist but are EMPTY:`);
+  empty.forEach(p => console.log(`  - ${p}`));
+});
+
+// Report for file_paths - Missing
+if (fileMissing.length > 0) {
+  hasIssues = true;
+  console.log(`\nThe following environment variables point to paths that do NOT exist on this system:`);
+  fileMissing.forEach(envvar => console.log(`  - ${envvar} (${process.env[envvar]})`));
 }
 
-if (!hasErrors) {
-  console.log("All environment variable paths exist on this system.");
+// Report for file_paths - Empty
+if (fileEmpty.length > 0) {
+  hasIssues = true;
+  console.log(`\nThe following environment variables point to paths that exist but are EMPTY:`);
+  fileEmpty.forEach(envvar => console.log(`  - ${envvar} (${process.env[envvar]})`));
+}
+
+if (!hasIssues) {
+  console.log("All environment variable paths exist and are non-empty.");
 }
