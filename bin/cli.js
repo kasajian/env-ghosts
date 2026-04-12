@@ -35,6 +35,9 @@ multiPathVars.forEach(({ envvar }) => {
 
   parts.forEach(p => {
     if (!p) return;
+    // Skip node_modules/.bin paths that are often injected by npm/node and may not exist yet
+    if (p.toLowerCase().endsWith(path.join('node_modules', '.bin').toLowerCase())) return;
+    
     if (!fs.existsSync(p)) {
       missing.push(p);
     } else {

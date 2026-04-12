@@ -10,16 +10,16 @@ A simple Node.js CLI tool that identifies non-existent directory paths stored in
 
 ## Usage
 
-You can run this directly from the repository using `npx`:
+You can run this directly from the repository using `npx`. Use the `--prefer-online` flag to ensure you are always using the latest version from GitHub:
 
 ```bash
-npx https://github.com/kasajian/env-ghosts
+npx -y --prefer-online https://github.com/kasajian/env-ghosts
 ```
 
 Or run it locally after cloning:
 
 ```bash
-node bin/cli.js
+npm start
 ```
 
 ## Configuration
