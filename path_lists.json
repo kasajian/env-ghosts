@@ -1,0 +1,216 @@
+{
+  "dir_paths": [
+    {
+      "envvar": "Path",
+      "description": "The primary search path for executable files.",
+      "tool": "Operating System"
+    },
+    {
+      "envvar": "INCLUDE",
+      "description": "Directories searched for header files (.h, .hpp) during compilation.",
+      "tool": "C/C++ Compiler"
+    },
+    {
+      "envvar": "EXTERNAL_INCLUDE",
+      "description": "Directories for external or third-party header files.",
+      "tool": "C/C++ Compiler"
+    },
+    {
+      "envvar": "LIB",
+      "description": "Directories searched for library files during the linking phase.",
+      "tool": "C/C++ Linker"
+    },
+    {
+      "envvar": "LIBPATH",
+      "description": "Search paths for metadata files and assembly references.",
+      "tool": "C/C++ Linker"
+    },
+    {
+      "envvar": "PYTHONPATH",
+      "description": "Augments the default search path for Python module files.",
+      "tool": "Python"
+    },
+    {
+      "envvar": "RUBYLIB",
+      "description": "Augments the library search path for Ruby modules.",
+      "tool": "Ruby"
+    },
+    {
+      "envvar": "GEM_PATH",
+      "description": "List of locations where Ruby looks for installed gems.",
+      "tool": "Ruby"
+    },
+    {
+      "envvar": "PERL5LIB",
+      "description": "List of directories to search for Perl modules.",
+      "tool": "Perl"
+    },
+    {
+      "envvar": "PSModulePath",
+      "description": "Search paths for PowerShell modules.",
+      "tool": "PowerShell"
+    },
+    {
+      "envvar": "LD_LIBRARY_PATH",
+      "description": "Directories where the dynamic linker searches for shared libraries (.so).",
+      "tool": "Operating System (Unix)"
+    },
+    {
+      "envvar": "DYLD_LIBRARY_PATH",
+      "description": "Directories where the dynamic linker searches for dynamic libraries (.dylib).",
+      "tool": "Operating System (macOS)"
+    },
+    {
+      "envvar": "MANPATH",
+      "description": "Directories to search for manual pages.",
+      "tool": "Operating System (Unix)"
+    },
+    {
+      "envvar": "WindowsLibPath",
+      "description": "Directories containing metadata and library references specific to the Windows SDK.",
+      "tool": "Windows SDK"
+    },
+    {
+      "envvar": "__VSCMD_PREINIT_PATH",
+      "description": "Internal variable used to restore the system path state.",
+      "tool": "Visual Studio"
+    },
+    {
+      "envvar": "PHPRC",
+      "description": "Path to the directory containing php.ini file (can be a list in some configs).",
+      "tool": "PHP"
+    }
+  ],
+  "file_paths": [
+    {
+      "envvar": "HOME",
+      "description": "The current user's home directory.",
+      "tool": "Operating System"
+    },
+    {
+      "envvar": "USERPROFILE",
+      "description": "The current user's home directory.",
+      "tool": "Operating System"
+    },
+    {
+      "envvar": "JAVA_HOME",
+      "description": "The root directory of the Java installation.",
+      "tool": "Java Development Kit"
+    },
+    {
+      "envvar": "GOROOT",
+      "description": "The directory where the Go SDK itself is installed.",
+      "tool": "Go"
+    },
+    {
+      "envvar": "GOPATH",
+      "description": "The workspace root for Go projects.",
+      "tool": "Go"
+    },
+    {
+      "envvar": "CARGO_HOME",
+      "description": "Location of Cargo's configuration, cache, and binaries (usually ~/.cargo).",
+      "tool": "Rust"
+    },
+    {
+      "envvar": "RUSTUP_HOME",
+      "description": "Location where rustup stores toolchains and data (usually ~/.rustup).",
+      "tool": "Rust"
+    },
+    {
+      "envvar": "VIRTUAL_ENV",
+      "description": "Path to the currently active Python virtual environment.",
+      "tool": "Python"
+    },
+    {
+      "envvar": "PYTHONUSERBASE",
+      "description": "Root directory for user-site packages.",
+      "tool": "Python"
+    },
+    {
+      "envvar": "GEM_HOME",
+      "description": "The primary directory where new gems are installed.",
+      "tool": "Ruby"
+    },
+    {
+      "envvar": "NVM_DIR",
+      "description": "Directory where Node Version Manager (nvm) is installed.",
+      "tool": "Node.js"
+    },
+    {
+      "envvar": "DENO_DIR",
+      "description": "The directory where Deno stores its cache and configuration.",
+      "tool": "Deno"
+    },
+    {
+      "envvar": "ANDROID_HOME",
+      "description": "The root directory of the Android SDK installation.",
+      "tool": "Android SDK"
+    },
+    {
+      "envvar": "FLUTTER_HOME",
+      "description": "The root directory of the Flutter SDK.",
+      "tool": "Flutter"
+    },
+    {
+      "envvar": "CABAL_DIR",
+      "description": "Directory for Cabal configuration and packages.",
+      "tool": "Haskell"
+    },
+    {
+      "envvar": "VCPKG_ROOT",
+      "description": "The root directory for the vcpkg C++ library manager.",
+      "tool": "vcpkg"
+    },
+    {
+      "envvar": "APPDATA",
+      "description": "Directory where applications store user-specific data.",
+      "tool": "Operating System"
+    },
+    {
+      "envvar": "LOCALAPPDATA",
+      "description": "Directory where applications store user-specific data.",
+      "tool": "Operating System"
+    },
+    {
+      "envvar": "TEMP",
+      "description": "The directory used for temporary files.",
+      "tool": "Operating System"
+    },
+    {
+      "envvar": "TMP",
+      "description": "The directory used for temporary files.",
+      "tool": "Operating System"
+    },
+    {
+      "envvar": "XDG_CONFIG_HOME",
+      "description": "Standard location for user-specific configuration files.",
+      "tool": "Operating System (Unix)"
+    },
+    {
+      "envvar": "XDG_DATA_HOME",
+      "description": "Standard location for user-specific data files.",
+      "tool": "Operating System (Unix)"
+    },
+    {
+      "envvar": "XDG_CACHE_HOME",
+      "description": "Standard location for user-specific cache data.",
+      "tool": "Operating System (Unix)"
+    },
+    {
+      "envvar": "SystemRoot",
+      "description": "The directory containing the core operating system files.",
+      "tool": "Operating System"
+    },
+    {
+      "envvar": "windir",
+      "description": "The directory containing the core operating system files.",
+      "tool": "Operating System"
+    },
+    {
+      "envvar": "ChocolateyInstall",
+      "description": "The installation directory for the Chocolatey package manager.",
+      "tool": "Chocolatey"
+    }
+  ]
+}

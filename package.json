@@ -1,0 +1,19 @@
+{
+  "name": "env-ghosts",
+  "version": "1.0.0",
+  "description": "A CLI tool to check for non-existent paths in environment variables.",
+  "type": "module",
+  "bin": {
+    "env-path-checker": "./bin/cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cli",
+    "environment-variables",
+    "path-checker"
+  ],
+  "author": "",
+  "license": "ISC"
+}
