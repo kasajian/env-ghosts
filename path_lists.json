@@ -71,11 +71,6 @@
       "tool": "Windows SDK"
     },
     {
-      "envvar": "__VSCMD_PREINIT_PATH",
-      "description": "Internal variable used to restore the system path state.",
-      "tool": "Visual Studio"
-    },
-    {
       "envvar": "PHPRC",
       "description": "Path to the directory containing php.ini file (can be a list in some configs).",
       "tool": "PHP"
